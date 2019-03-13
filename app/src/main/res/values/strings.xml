@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RetrofitNoteApp</string>
+    <string name="save">save</string>
+    <string name="update">update</string>
+    <string name="to_do">Todo</string>
+    <string name="enter_note">Enter note here</string>
+    <string name="date">date</string>
+</resources>
