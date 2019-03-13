@@ -65,35 +65,34 @@ public class MainActivity extends AppCompatActivity implements MainView {
         itemClickListener = (new MainAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                //int id = note.get(position).getId();
+                int id = note.get(position).getId();
                 String title = note.get(position).getTitle();
                 //Toast.makeText(this,title,Toast.LENGTH_SHORT);
-//                String notes = note.get(position).getNote();
-//                int color = note.get(position).getColor();
+                String notes = note.get(position).getNote();
+                int color = note.get(position).getColor();
 
-//                Intent intent = new Intent(MainActivity.this, EditorActivity.class);
-//                intent.putExtra("id", id);
-//                intent.putExtra("title", title);
-//                intent.putExtra("note", notes);
-//                intent.putExtra("color", color);
-//                MainActivity.this.startActivityForResult(intent, INTENT_EDIT);
+                Intent intent = new Intent(MainActivity.this, EditorActivity.class);
+                intent.putExtra("id", id);
+                intent.putExtra("title", title);
+                intent.putExtra("note", notes);
+                intent.putExtra("color", color);
+                MainActivity.this.startActivityForResult(intent, INTENT_EDIT);
 
             }
         });
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == INTENT_ADD && resultCode == RESULT_OK) {
-//            presenter.getData(); //reload data
-//        }
-//        else if (requestCode == INTENT_EDIT && resultCode == RESULT_OK) {
-//            presenter.getData(); //reload data
-//        }
-//
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == INTENT_ADD && resultCode == RESULT_OK) {
+            presenter.getData(); //reload data
+        } else if (requestCode == INTENT_EDIT && resultCode == RESULT_OK) {
+            presenter.getData(); //reload data
+        }
+
+    }
 
     @Override
     public void showLoading() {
