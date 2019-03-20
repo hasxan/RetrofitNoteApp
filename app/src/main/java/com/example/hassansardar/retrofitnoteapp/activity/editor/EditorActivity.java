@@ -160,26 +160,29 @@ public class EditorActivity extends AppCompatActivity implements EditorView {
 
                 return true;
 
-//            case R.id.delete:
-//
-//                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-//                alertDialog.setTitle("Confirm !");
-//                alertDialog.setMessage("Are you sure?");
-//                alertDialog.setNegativeButton("Yes", (dialog, which) -> {
-//                    dialog.dismiss();
-//                    presenter.deleteNote(id);
-//                });
-//                alertDialog.setPositiveButton("Cencel",
-//                        new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                            }
-//                        });
-//
-//                alertDialog.show();
-//
-//             return true;
+            case R.id.delete:
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                alertDialog.setTitle("Confirm !");
+                alertDialog.setMessage("Are you sure?");
+                alertDialog.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        presenter.deleteNote(id);
+                    }
+                });
+                alertDialog.setPositiveButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                alertDialog.show();
+
+             return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
